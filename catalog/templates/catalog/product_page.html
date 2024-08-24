@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <h1>{{ object.product_name }}</h1>
     <p>{{ object.description }}</p>
-<img src="{{ object.image | make_image_link }}" class="img-fluid" alt="...">
-    <h4>{{ object.price }} рублей</h4>
+    <img src="{{ object.image | make_image_link }}" class="img-fluid" alt="...">
+    <h4 class="text mt-4">{{ object.price }} рублей</h4>
 </div>
 {% endblock %}
