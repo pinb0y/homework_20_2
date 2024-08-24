@@ -9,7 +9,7 @@ class Product(models.Model):
     description = models.TextField(verbose_name="описание")
     image = models.ImageField(
         verbose_name="картинка",
-        upload_to="main/photo",
+        upload_to="catalog/photo",
         blank=True,
         null=True,
     )
