@@ -4,12 +4,14 @@
 <div class="container">
     <div class="row">
         {% for object in object_list %}
-        <div class="card m-4" style="width: 14rem;">
-            <img src="{{ object.image|make_image_link }}" class="img-fluid" alt="...">
-            <div class="card-body">
-                <a href="{% url 'catalog:product_page' pk=object.pk %}" class="card-title">{{ object.product_name }}</a>
-                <p class="card-text">{{ object.description }}.</p>
-                <a href="#" class="btn btn-primary">Купить</a>
+        <div class="col-md-4">
+            <div class="card m-4" style="width: 14rem;">
+                <img src="{{ object.image|make_image_link }}" class="img-fluid" alt="...">
+                <div class="card-body">
+                    <a class="card-title" href="{% url 'catalog:product_page' pk=object.pk %}">{{ object.product_name | title }}</a>
+                    <p class="card-text">{{ object.description | cut_100_chars }}.</p>
+                    <a href="#" class="btn btn-primary">Купить</a>
+                </div>
             </div>
         </div>
         {% endfor %}
