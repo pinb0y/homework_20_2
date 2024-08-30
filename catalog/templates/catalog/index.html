@@ -3,6 +3,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        <a class="btn btn-outline-primary" href="{% url 'catalog:create_product' %}">Добавить продукт</a>
         {% for object in object_list %}
         <div class="col-md-4">
             <div class="card m-4" style="width: 14rem;">
@@ -10,7 +11,11 @@
                 <div class="card-body">
                     <a class="card-title" href="{% url 'catalog:product_page' pk=object.pk %}">{{ object.product_name | title }}</a>
                     <p class="card-text">{{ object.description | cut_100_chars }}.</p>
-                    <a href="#" class="btn btn-primary">Купить</a>
+                    {% if object.is_active %}
+                    <a href="{% url 'catalog:toggle_activity' object.pk %}" class="btn btn-warning">деактивировать</a>
+                    {% else %}
+                    <a href="{% url 'catalog:toggle_activity' object.pk %}" class="btn btn-success">активировать</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

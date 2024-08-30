@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from django.db import models
 
 
@@ -22,8 +24,9 @@ class Product(models.Model):
         related_name="products",
     )
     price = models.IntegerField(verbose_name="цена за покупку")
-    created_at = models.DateField(verbose_name="Дата создания")
-    updated_at = models.DateField(verbose_name="Дата последнего изменения")
+    created_at = models.DateField(default=timezone.now, verbose_name="Дата создания")
+    updated_at = models.DateField(default=timezone.now, verbose_name="Дата последнего изменения")
+    is_active = models.BooleanField(default=True, verbose_name="Cтатус")
 
     def __str__(self):
         return f"{self.product_name} ({self.description})"

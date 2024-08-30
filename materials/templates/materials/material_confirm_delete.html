@@ -9,7 +9,7 @@
                     <form method="post">
                         {% csrf_token %}
                         <p>Хотите удалить материал "{{ object.title }}"?</p>
-                        <button type="submit" class="btn btn-danger">Подтвердить</button>
+                        <button type="submit" class="btn btn-danger">Да</button>
                         <a href="{% url 'materials:list' %}" class="btn btn-success">Нет</a>
                     </form>
                 </div>
